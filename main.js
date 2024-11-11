@@ -6,7 +6,7 @@ const productos = [
     img: 'https://res.cloudinary.com/ditkcrwd0/image/upload/v1710153890/project-landing/shopping_u0outn.webp',
     estrellas: 4,
     colores: ['Negro'],
-    modelo: ['Camiseta']
+    modelo: 'Ropa'
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ const productos = [
     img: 'https://res.cloudinary.com/ditkcrwd0/image/upload/v1710154053/project-landing/caballo-ajedrez-negro-01-600x600_rryyy5.jpg',
     estrellas: 5,
     colores: ['Negro', 'Blanco'],
-    modelo: ['Decoración']
+    modelo: 'Decoración'
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const productos = [
     img: 'https://res.cloudinary.com/ditkcrwd0/image/upload/v1710153970/project-landing/il_794xN.5587074338_hmwr_txl8tv.webp',
     estrellas: 3,
     colores: ['Negro', 'Blanco', 'Amarillo'],
-    modelo: ['Decoración']
+    modelo: 'Decoración'
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ const productos = [
     img: 'https://res.cloudinary.com/ditkcrwd0/image/upload/v1710153779/project-landing/VI2-00206-00025_92433_blanco-negro_wwfok7.jpg',
     estrellas: 4,
     colores: ['Blanco'],
-    modelo: ['Taza']
+    modelo: 'Taza'
   },
   {
     id: 5,
@@ -42,7 +42,7 @@ const productos = [
     img: 'https://res.cloudinary.com/ditkcrwd0/image/upload/v1710153688/project-landing/il_794xN.5841412913_c2d9_uaprka.avif',
     estrellas: 5,
     colores: ['Blanco'],
-    modelo: ['Termo']
+    modelo: 'Termo'
   },
   {
     id: 6,
@@ -50,7 +50,7 @@ const productos = [
     precio: 18,
     img: 'https://res.cloudinary.com/ditkcrwd0/image/upload/v1710153223/project-landing/md31281392157_ljmbxx.jpg',
     estrellas: 5,
-    modelo: ['Historia Ajedrez']
+    modelo: 'Libros'
   },
   {
     id: 7,
@@ -58,7 +58,7 @@ const productos = [
     precio: 10,
     img: 'https://res.cloudinary.com/ditkcrwd0/image/upload/v1710153348/project-landing/903984-360x480_n1sqlf.jpg',
     estrellas: 5,
-    modelo: ['Manual']
+    modelo: 'Libros'
   },
   {
     id: 8,
@@ -67,7 +67,7 @@ const productos = [
     img: 'https://res.cloudinary.com/ditkcrwd0/image/upload/v1710153619/project-landing/shopping_zqq8uw.webp',
     estrellas: 3,
     colores: ['Azul'],
-    modelo: ['Planillas']
+    modelo: 'Planillas'
   },
   {
     id: 9,
@@ -76,7 +76,7 @@ const productos = [
     img: 'https://res.cloudinary.com/ditkcrwd0/image/upload/v1710153043/project-landing/511ipNsPQ9L._AC_SL1000__imqzv9.jpg',
     estrellas: 4,
     colores: ['Marrón'],
-    modelo: ['Reloj']
+    modelo: 'Reloj'
   },
   {
     id: 10,
@@ -84,7 +84,7 @@ const productos = [
     precio: 30,
     img: 'https://res.cloudinary.com/ditkcrwd0/image/upload/v1710152944/project-landing/s-l500_sxlgfq.jpg',
     estrellas: 4,
-    modelo: ['Tablero']
+    modelo: 'Tableros'
   },
   {
     id: 11,
@@ -92,7 +92,7 @@ const productos = [
     precio: 15,
     img: 'https://res.cloudinary.com/ditkcrwd0/image/upload/v1710152698/project-landing/shopping_vvj4ha.webp',
     estrellas: 3,
-    modelo: ['Piezas Madera']
+    modelo: 'Piezas'
   },
   {
     id: 12,
@@ -100,7 +100,7 @@ const productos = [
     precio: 20,
     img: 'https://res.cloudinary.com/ditkcrwd0/image/upload/v1710154139/project-landing/shopping_mbgmke.webp',
     estrellas: 4,
-    modelo: ['Piezas Cristal']
+    modelo: 'Piezas'
   },
   {
     id: 13,
@@ -108,7 +108,7 @@ const productos = [
     precio: 30,
     img: 'https://res.cloudinary.com/ditkcrwd0/image/upload/v1710154522/project-landing/juego-ajedrez-plegable-de-madera-yo-juegoo_1_stvkbx.jpg',
     estrellas: 4,
-    modelo: ['Tablero PLegable']
+    modelo: 'Tableros'
   },
   {
     id: 14,
@@ -116,7 +116,7 @@ const productos = [
     precio: 50,
     img: 'https://res.cloudinary.com/ditkcrwd0/image/upload/v1710153096/project-landing/4032153008103_1_tqgprk.jpg',
     estrellas: 4,
-    modelo: ['Tablero Electrónico']
+    modelo: 'Tableros'
   },
   {
     id: 15,
@@ -124,7 +124,7 @@ const productos = [
     precio: 40,
     img: 'https://res.cloudinary.com/ditkcrwd0/image/upload/v1710153004/project-landing/81chsyBTjIL._AC_SL1500__gsrsoy.jpg',
     estrellas: 4,
-    modelo: ['Set Ajedrez']
+    modelo: 'Set Ajedrez'
   }
 ]
 
@@ -165,6 +165,11 @@ const createSelectModel = () => {
 
     selectModel.appendChild(option)
   }
+  selectModel.addEventListener('change', (evento) => {
+    MODELO = evento.target.value
+    filtrar()
+  })
+
   divFiltros.appendChild(selectModel)
 }
 
@@ -190,6 +195,7 @@ const printProducts = (products) => {
     }
 
     divProduct.className = 'flex-container'
+    divImg.classList = 'imgContainer'
     divEstrellas.classList.add('estrellas')
     divEstrellas.classList.add('flex-container')
     img.src = product.img
