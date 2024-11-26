@@ -173,6 +173,19 @@ const createSelectModel = () => {
   divFiltros.appendChild(selectModel)
 }
 
+const buscarPorNombre = (nombre) => {
+  const filtered = productos.filter((product) =>
+    product.nombre.toLowerCase().includes(nombre.toLowerCase())
+  )
+  printProducts(filtered)
+}
+
+const inputBuscador = document.querySelector('#searchInput')
+inputBuscador.addEventListener('input', (evento) => {
+  const texto = evento.target.value
+  buscarPorNombre(texto)
+})
+
 const printProducts = (products) => {
   const divProducts = document.querySelector('#productos')
   divProducts.innerHTML = ''

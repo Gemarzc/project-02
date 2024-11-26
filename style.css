@@ -15,8 +15,13 @@ body {
   cursor: pointer;
 }
 
-div a {
-  padding: 0;
+.menu-image > a {
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  width: 82px;
+  left: 47%;
+  position: relative;
 }
 
 h1 {
@@ -116,7 +121,7 @@ input:hover {
   background-color: yellow;
 }
 
-a {
+li > a {
   font-size: 20px;
   display: flex;
   justify-content: center;
